@@ -1,5 +1,8 @@
-OSX Dev Tools
+OSX Dev Tools 
 =============
+borrowed from
+* [thoughtbot/laptop](https://github.com/thoughtbot/laptop)
+* [newism/osx-dev-tools](https://github.com/newism/osx-dev-tools)
 
 OSX Dev Tools is a script to set up your Max OS X laptop as a web development machine.
 
