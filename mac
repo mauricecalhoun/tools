@@ -1,0 +1,108 @@
+#!/bin/bash
+
+source ~/.bash_profile
+source ./lib/utils
+
+# Install Homebrew
+e_header  "Installing Homebrew, a good OS X package manager ..."
+  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+  brew doctor
+  brew tap homebrew/dupes
+
+# Create SSH Keys nd prompt user to add them to Github
+e_header  "Checking for SSH key in ~/.ssh/id_rsa.pub, generating one if it doesn't exist ..."
+  [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
+
+e_header  "Copying public key to clipboard."
+  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
+
+# Add SSH keys to Github
+e_header  "Add your ssh key to Github"
+  seek_confirmation "Open https://github.com/account/ssh in your browser"
+  if is_confirmed; then
+  open https://github.com/account/ssh
+  fi
+
+seek_confirmation "Test Github Authentication via ssh"
+  if is_confirmed; then
+  printf "\n Testing..."
+  ssh -T git@github.com
+  fi
+
+# Install Homebrew Git
+e_header  "Installing Git..."
+  brew install git
+
+# Before we do any config install our dotfiles
+e_header  "Installing Newism dot files..."
+  git clone git://github.com/leevigraham/dotfiles.git ~/.dotfiles
+  ~/.dotfiles/bin/dotfiles
+  ~/.dotfiles/bin/osx
+  source ~/.bash_profile
+
+e_header "Adding Global Git Config..."
+  echo  "Whats your name? [Enter]: "
+  read name
+  echo "What's your email? [Enter]: "
+  read email
+  echo "git config --global user.name '$name'" >> .bash_profile.local
+  echo "git config --global user.email '$email'" >> .bash_profile.local
+
+# Install zsh
+# e_header  "Installing zsh..."
+#   brew install zsh
+#   sudo mv /etc/zshenv /etc/zprofile
+
+e_header "Install bash-completion..."
+  brew install git bash-completion
+
+e_header "Creating ~/Site folders"
+  mkdir -p ~/Sites/Work/Clients
+  mkdir -p ~/Sites/Work/Internal
+  mkdir -p ~/Sites/Home
+
+e_header "Install Solarized terminal theme"
+  git clone git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git ~/Sites/Work/Internal/solarized-terminal
+  open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Light.terminal
+  open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Dark.terminal
+  sleep 1 # Wait a bit to make sure the theme is loaded
+  defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
+  defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
+
+e_header "Installing ImageMagick, good for cropping and re-sizing images ..."
+  brew install imagemagick
+
+e_header "Installing optipng, a PNG optimizer that recompresses the image files to a smaller size, without losing any information. ..."
+  brew install optipng
+
+e_header  "Creating SSL Certificate and updating Apache..."
+# See: http://webdevstudios.com/2013/05/24/how-to-set-up-ssl-with-osx-mountain-lions-built-in-apache/
+  mkdir ssl
+  cd ssl
+  openssl genrsa -des3 -out server.key 1024
+  openssl req -new -key server.key -out server.csr
+  cp server.key server.key.org
+  openssl rsa -in server.key.org -out server.key
+  openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+  sudo cp server.crt /private/etc/apache2/server.crt
+  sudo cp server.key /private/etc/apache2/server.key
+
+  # Include SSL Conf in /private/etc/apache2/httpd.conf
+  sudo sed -i .bak 's/\#Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/g' /private/etc/apache2/httpd.conf
+  sudo apachectl restart
+  open https:localhost
+
+  cd ../
+
+e_success "Boom... success"
+
+source ~/.bash_profile
+
+./git
+./ruby
+./node
+./php
+./rails
+./yo
+./pow
+./misc

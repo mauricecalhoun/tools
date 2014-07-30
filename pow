@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source ~/.bash_profile
+source ./lib/utils
+
+e_header "Installing PHP POW by Maurice Calhoun"
+  curl  -s http://mauricecalhoun.github.com/phpow/get | sh
+  
+e_header "Installing Rails POW by Sam Stephenson"
+  curl get.pow.cx | sh
+  
+source ~/.bash_profile  

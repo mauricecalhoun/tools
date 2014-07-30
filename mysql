@@ -1,0 +1,9 @@
+#!/bin/bash
+
+source ~/.bash_profile
+source ./lib/utils
+
+e_header "Installing Mysql"
+  brew install mysql
+  
+source ~/.bash_profile

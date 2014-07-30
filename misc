@@ -1,0 +1,76 @@
+#!/bin/bash
+
+source ~/.bash_profile
+source ./lib/utils
+
+e_header "Enable keyboard access for all controls/modals"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+e_header "Disable OS X press-and-hold keys to increase key repeat rate."
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+e_header "Set up a fast key repeat rate."
+defaults write NSGlobalDomain KeyRepeat -int 0.02
+
+e_header "Decrease the delay until keys are repeated."
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+
+e_header "Disable autocorrect (srsly.)"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+e_header "Enable sub-pixel rendering even if you don't have a fancy Apple display"
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+e_header "Automatically hide and show the dock"
+defaults write com.apple.dock autohide -bool true
+
+e_header "Make hidden applications semi-transparent on the dock"
+defaults write com.apple.dock showhidden -bool true
+
+e_header "Allow Finder to quit (using ⌘Q)"
+defaults write com.apple.finder QuitMenuItem -bool true
+
+e_header "Show all filename extensions in the finder"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+e_header "Show the path bar in the Finder"
+defaults write com.apple.finder ShowPathbar -bool true
+
+e_header "Expand the Save panel by default in all applications"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+e_header "Expand the Printer panel by default in all applications"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+e_header "Enable airdrop-over-ethernet for bridged networks"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+e_header "Avoid creating DSStore files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+e_header "Display the full POSIX path as the Finder window's title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+e_header "Disable the warning when you change a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+e_header "Disable the warning shown before you empty the trash"
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+e_header "Empty the trash securely by default (yes, this will be time consuming)"
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+e_header "Reveal the ~/Library folder"
+chflags nohidden ~/Library
+
+e_header "Increase the window resize speed for Cocoa apps"
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+e_header "Require password immediately after sleep or screensaver begins."
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+e_header "Only use UTF-8 in Terminal.app"
+defaults write com.apple.terminal StringEncodings -array 4
+
+source ~/.bash_profile
