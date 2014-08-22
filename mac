@@ -92,9 +92,6 @@ e_header  "Creating SSL Certificate and updating Apache..."
   sudo apachectl restart
   open https:localhost
 
-  cd ../
-
-e_success "Boom... success"
 
 source ~/.bash_profile
 
@@ -106,3 +103,7 @@ source ~/.bash_profile
 ./yo
 ./pow
 ./misc
+
+  cd ../
+
+e_success "Boom... success"
