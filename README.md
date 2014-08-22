@@ -19,8 +19,7 @@ Install
 
 Run the script:
 
-    git clone https://github.com/newism/osx-dev-tools.git
-    ./osx-dev-tools/mac
+    git clone https://github.com/mauricecalhoun/tools.git
 
 
 What it sets up
