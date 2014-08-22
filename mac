@@ -91,7 +91,9 @@ e_header  "Creating SSL Certificate and updating Apache..."
   sudo sed -i .bak 's/\#Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/g' /private/etc/apache2/httpd.conf
   sudo apachectl restart
   open https:localhost
+  cd ../
 
+e_success "Boom... success"
 
 source ~/.bash_profile
 
@@ -103,7 +105,3 @@ source ~/.bash_profile
 ./yo
 ./pow
 ./misc
-
-  cd ../
-
-e_success "Boom... success"
