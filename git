@@ -1,5 +1,0 @@
-e_header  "Installing Gitflow..."
-  brew install git-flow
-
-e_header "Installing Hub..."
-	brew install hub
