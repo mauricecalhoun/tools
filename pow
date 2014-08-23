@@ -1,7 +1,0 @@
-e_header "Installing PHP POW by Maurice Calhoun"
-  gem install phpow
-  
-e_header "Installing Rails POW by Sam Stephenson"
-  curl get.pow.cx | sh
-  
-source ~/.bash_profile  
