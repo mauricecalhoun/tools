@@ -1,4 +1,0 @@
-e_header "Installing Yeoman"
-  npm install -g yo
-  
-source ~/.bash_profile  
