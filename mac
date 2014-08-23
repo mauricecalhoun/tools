@@ -97,11 +97,11 @@ e_success "Boom... success"
 
 source ~/.bash_profile
 
-./git
-./ruby
-./node
-./php
-./rails
-./yo
-./pow
-./misc
+curl -s https://github.com/mauricecalhoun/tools/edit/master/git | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/ruby | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/node | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/php | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/rails | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/yo | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/pow | sh
+curl -s https://github.com/mauricecalhoun/tools/edit/master/misc | sh
