@@ -89,9 +89,6 @@ e_header  "Creating SSL Certificate and updating Apache..."
 
   # Include SSL Conf in /private/etc/apache2/httpd.conf
   sudo sed -i .bak 's/\#Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/Include \/private\/etc\/apache2\/extra\/httpd-ssl.conf/g' /private/etc/apache2/httpd.conf
-  sudo apachectl restart
-  open https:localhost
-  cd ../
 
 e_header  "Installing Gitflow..."
   brew install git-flow
@@ -147,12 +144,8 @@ e_header "Installing JSHint to validate Javascript code..."
 e_header "Installing Uglify for minifying Javascript code..."
   npm install -g uglify-js
   
-# PHP
-
 e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
-
-# PHP 5.4
 
 e_header "Installing PHP 5.4..."
   brew unlink php53
@@ -186,19 +179,14 @@ e_header "Fixing PEAR permissions"
   pear config-set php_ini /usr/local/etc/php/5.4/php.ini
   pear config-set auto_discover 1
 
-# PHP 5.3
-
-source ~/.bash_profile
-
 e_header "Installing PHP 5.3..."
   brew unlink php54
   brew install php53
   brew link php53
 
 e_header "Updating the date.timezone setting in /usr/local/etc/php/5.3/php.ini"
-    sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.3/php.ini
-    sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.3/php.ini
-
+  sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.3/php.ini
+  sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.3/php.ini
 
 e_header "Installing PHP 5.3 xDebug..."
   brew install php53-xdebug
@@ -222,8 +210,6 @@ e_header "Fixing PEAR permissions"
   chmod -R ug+w $(brew --prefix php53)/lib/php
   pear config-set php_ini /usr/local/etc/php/5.3/php.ini
   pear config-set auto_discover 1
-
-PHP Utils
 
 e_header "Installing Composer (PHP package manager)..."
   brew install composer
@@ -271,74 +257,78 @@ e_header "Installing Rails POW by Sam Stephenson"
   curl get.pow.cx | sh  
   
 e_header "Enable keyboard access for all controls/modals"
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+  defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 e_header "Disable OS X press-and-hold keys to increase key repeat rate."
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 e_header "Set up a fast key repeat rate."
-defaults write NSGlobalDomain KeyRepeat -int 0.02
+  defaults write NSGlobalDomain KeyRepeat -int 0.02
 
 e_header "Decrease the delay until keys are repeated."
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
+  defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 e_header "Disable autocorrect (srsly.)"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 e_header "Enable sub-pixel rendering even if you don't have a fancy Apple display"
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+  defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 e_header "Automatically hide and show the dock"
-defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide -bool true
 
 e_header "Make hidden applications semi-transparent on the dock"
-defaults write com.apple.dock showhidden -bool true
+  defaults write com.apple.dock showhidden -bool true
 
 e_header "Allow Finder to quit (using ⌘Q)"
-defaults write com.apple.finder QuitMenuItem -bool true
+  defaults write com.apple.finder QuitMenuItem -bool true
 
 e_header "Show all filename extensions in the finder"
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 e_header "Show the path bar in the Finder"
-defaults write com.apple.finder ShowPathbar -bool true
+  defaults write com.apple.finder ShowPathbar -bool true
 
 e_header "Expand the Save panel by default in all applications"
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 e_header "Expand the Printer panel by default in all applications"
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
 e_header "Enable airdrop-over-ethernet for bridged networks"
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+  defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 e_header "Avoid creating DSStore files on network volumes"
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 e_header "Display the full POSIX path as the Finder window's title"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 e_header "Disable the warning when you change a file extension"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 e_header "Disable the warning shown before you empty the trash"
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+  defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 e_header "Empty the trash securely by default (yes, this will be time consuming)"
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+  defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 e_header "Reveal the ~/Library folder"
-chflags nohidden ~/Library
+  chflags nohidden ~/Library
 
 e_header "Increase the window resize speed for Cocoa apps"
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+  defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 e_header "Require password immediately after sleep or screensaver begins."
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+  defaults write com.apple.screensaver askForPassword -int 1
+  defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 e_header "Only use UTF-8 in Terminal.app"
-defaults write com.apple.terminal StringEncodings -array 4  
+  defaults write com.apple.terminal StringEncodings -array 4  
+
+sudo apachectl restart
+open https:localhost
+cd ../
   
 source ~/.bash_profile
 
