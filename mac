@@ -93,15 +93,253 @@ e_header  "Creating SSL Certificate and updating Apache..."
   open https:localhost
   cd ../
 
-e_success "Boom... success"
+e_header  "Installing Gitflow..."
+  brew install git-flow
+
+e_header "Installing Hub..."
+  brew install hub
+  
+e_header "Installing RVM (Ruby Version Manager) and Ruby 1.9.3-p327, which becomes the default ..."
+  curl -L https://get.rvm.io | bash -s stable
+  source ~/.rvm/scripts/rvm
+
+e_header "Installing packages required for RVM"
+  brew install autoconf automake libtool pkg-config openssl readline libyaml sqlite libxml2 libxslt libksba
+
+e_header "Installing Ruby 1.9.3 via RVM"
+  rvm install 1.9.3
+  rvm use 1.9.3 --default
+  ruby -v
+
+e_header "Installing bundler for handling dependencies..."
+  gem install bundler --no-rdoc --no-ri
+
+e_header "Installing guard for watching files for changes..."
+  gem install guard --no-rdoc --no-ri
+
+e_header "Installing KSS for generating styleguides..."
+  gem install kss --no-rdoc --no-ri
+
+e_header "Installing rake..."
+  gem install rake --no-rdoc --no-ri
+
+e_header "Installing latest version of Sass..."
+  gem install sass --no-rdoc --no-ri
+
+e_header "Installing latest version of Compass..."
+  gem install compass --no-rdoc --no-ri
+
+e_header "Updating Rubygems..."
+  gem update
+ 
+e_header "Installing Node & NPM (Node Package Manager)..."
+  brew install node
+
+ e_header "Installing Grunt..."
+  npm install -g grunt-cli
+
+e_header "Installing Coffeescript..."
+  npm install -g coffee-script
+
+e_header "Installing JSHint to validate Javascript code..."
+  npm install -g jshint
+
+e_header "Installing Uglify for minifying Javascript code..."
+  npm install -g uglify-js
+  
+# PHP
+
+e_header "Tapping josegonzalez/homebrew-php..."
+  brew tap josegonzalez/homebrew-php
+
+# PHP 5.4
+
+e_header "Installing PHP 5.4..."
+  brew unlink php53
+  brew install php54 --with-mysql --with-imap --with-pgsql --with-suhosin
+  brew link php54
+
+e_header "Updating the date.timezone setting in /usr/local/etc/php/5.4/php.ini"
+    sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.4/php.ini
+    sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.4/php.ini
+
+e_header "Installing PHP 5.4 xDebug..."
+  brew install php54-xdebug
+
+e_header "Installing PHP 5.4 APC..."
+  brew install php54-apc
+
+e_header "Installing PHP 5.4 Twig..."
+  brew install php54-twig
+
+e_header "Installing PHP 5.4 intl..."
+  brew install php54-intl
+
+e_header "Installing PHP 5.4 Imagick"
+  brew install php54-imagick
+
+e_header "Installing PHP 5.4 MCrypt..."
+  brew install php54-mcrypt
+
+e_header "Fixing PEAR permissions"
+  chmod -R ug+w $(brew --prefix php54)/lib/php
+  pear config-set php_ini /usr/local/etc/php/5.4/php.ini
+  pear config-set auto_discover 1
+
+# PHP 5.3
 
 source ~/.bash_profile
 
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/git | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/ruby | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/node | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/php | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/rails | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/yo | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/pow | sh
-curl -s https://raw.github.com/mauricecalhoun/tools/edit/master/misc | sh
+e_header "Installing PHP 5.3..."
+  brew unlink php54
+  brew install php53
+  brew link php53
+
+e_header "Updating the date.timezone setting in /usr/local/etc/php/5.3/php.ini"
+    sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.3/php.ini
+    sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.3/php.ini
+
+
+e_header "Installing PHP 5.3 xDebug..."
+  brew install php53-xdebug
+
+e_header "Installing PHP 5.3 APC..."
+  brew install php53-apc
+
+e_header "Installing PHP 5.3 Twig..."
+  brew install php53-twig
+
+e_header "Installing PHP 5.3 intl..."
+  brew install php53-intl
+
+e_header "Installing PHP 5.3 Imagick..."
+  brew install php53-imagick
+
+e_header "Installing PHP 5.3 MCrypt..."
+  brew install php53-mcrypt
+
+e_header "Fixing PEAR permissions"
+  chmod -R ug+w $(brew --prefix php53)/lib/php
+  pear config-set php_ini /usr/local/etc/php/5.3/php.ini
+  pear config-set auto_discover 1
+
+PHP Utils
+
+e_header "Installing Composer (PHP package manager)..."
+  brew install composer
+  composer self-update
+
+e_header "Installing Capifony..."
+  gem install capifony
+
+e_header "Instaling PHP Q/A Tools"
+
+  pear channel-discover pear.pdepend.org
+  pear channel-discover pear.phpmd.org
+  pear channel-discover pear.phpunit.de
+  pear channel-discover pear.phpdoc.org
+  pear channel-discover components.ez.no
+  pear channel-discover pear.symfony-project.com
+  
+  pear install pdepend/PHP_Depend
+  pear install phpmd/PHP_PMD
+  pear install phpunit/phpcpd
+  pear install phpunit/phploc
+  pear install --alldeps phpunit/PHP_CodeBrowser
+  pear install --alldeps phpunit/PHPUnit
+  pear install phpdoc/phpDocumentor-alpha
+  pear install PHP_CodeSniffer
+  pear install pear.phpqatools.org/phpqatools
+  pear install pear.netpirates.net/phpDox-alpha
+
+  phpcs --config-set default_standard Symfony2
+
+e_header "Installing PHP CS Fixer..."
+  curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+  chmod a+x /usr/local/bin/php-cs-fixer  
+  
+e_header "Installing Rails"
+  gem install rails 
+  
+e_header "Installing Yeoman"
+  npm install -g yo  
+  
+e_header "Installing PHP POW by Dan Ott"
+  gem install phpow
+  
+e_header "Installing Rails POW by Sam Stephenson"
+  curl get.pow.cx | sh  
+  
+e_header "Enable keyboard access for all controls/modals"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+e_header "Disable OS X press-and-hold keys to increase key repeat rate."
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+e_header "Set up a fast key repeat rate."
+defaults write NSGlobalDomain KeyRepeat -int 0.02
+
+e_header "Decrease the delay until keys are repeated."
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+
+e_header "Disable autocorrect (srsly.)"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+e_header "Enable sub-pixel rendering even if you don't have a fancy Apple display"
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+e_header "Automatically hide and show the dock"
+defaults write com.apple.dock autohide -bool true
+
+e_header "Make hidden applications semi-transparent on the dock"
+defaults write com.apple.dock showhidden -bool true
+
+e_header "Allow Finder to quit (using ⌘Q)"
+defaults write com.apple.finder QuitMenuItem -bool true
+
+e_header "Show all filename extensions in the finder"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+e_header "Show the path bar in the Finder"
+defaults write com.apple.finder ShowPathbar -bool true
+
+e_header "Expand the Save panel by default in all applications"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+e_header "Expand the Printer panel by default in all applications"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+e_header "Enable airdrop-over-ethernet for bridged networks"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+e_header "Avoid creating DSStore files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+e_header "Display the full POSIX path as the Finder window's title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+e_header "Disable the warning when you change a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+e_header "Disable the warning shown before you empty the trash"
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+e_header "Empty the trash securely by default (yes, this will be time consuming)"
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+e_header "Reveal the ~/Library folder"
+chflags nohidden ~/Library
+
+e_header "Increase the window resize speed for Cocoa apps"
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+e_header "Require password immediately after sleep or screensaver begins."
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+e_header "Only use UTF-8 in Terminal.app"
+defaults write com.apple.terminal StringEncodings -array 4  
+  
+source ~/.bash_profile
+
+e_success "Boom... success"
