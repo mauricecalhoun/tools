@@ -1,4 +1,0 @@
-e_header "Installing Mysql"
-  brew install mysql
-  
-source ~/.bash_profile
