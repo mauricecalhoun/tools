@@ -55,7 +55,7 @@ fi
 
 # Install Homebrew
 e_header  "Installing Homebrew, a good OS X package manager ..."
-  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)"
   brew doctor
   brew tap homebrew/dupes
 
