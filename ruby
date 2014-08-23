@@ -1,8 +1,3 @@
-#!/bin/bash
-
-source ./lib/utils
-source ~/.bash_profile
-
 # Ruby
 
 e_header "Installing RVM (Ruby Version Manager) and Ruby 1.9.3-p327, which becomes the default ..."
