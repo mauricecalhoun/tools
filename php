@@ -1,8 +1,3 @@
-#!/bin/bash
-
-source ~/.bash_profile
-source ./lib/utils
-
 # PHP
 
 e_header "Tapping josegonzalez/homebrew-php..."
