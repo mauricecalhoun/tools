@@ -1,8 +1,3 @@
-#!/bin/bash
-
-source ~/.bash_profile
-source ./lib/utils
-
 e_header "Installing Rails"
   gem install rails
   
