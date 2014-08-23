@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source ~/.bash_profile
 source ./lib/utils
