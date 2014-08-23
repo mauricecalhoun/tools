@@ -1,4 +1,0 @@
-e_header "Installing Rails"
-  gem install rails
-  
-source ~/.bash_profile  
