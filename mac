@@ -192,7 +192,7 @@ e_header "Installing Grunt..."
   npm install -g grunt-cli
 
 e_header "Installing Underscore..."
-  npm install underscore
+  npm install -g underscore
 
 e_header "Installing Backbone..."
   npm install -g backbone
