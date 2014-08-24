@@ -56,7 +56,6 @@ fi
 # Install Homebrew
 e_header  "Installing Homebrew, a good OS X package manager ..."
   ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)"
-  brew doctor
   brew tap homebrew/dupes
 
 # Create SSH Keys nd prompt user to add them to Github
@@ -214,6 +213,12 @@ e_header "Installing Jade templating engine..."
 e_header "Installing JS2Coffee for converting projects to Coffeescript..."
   npm install -g js2coffee  
   
+e_header "Cleaning Brew links..."
+  ls -1 /usr/local/Library/LinkedKegs | while read line; do
+    brew unlink $line
+    brew link --force $line
+  done
+  
 e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
   brew install php53  --with-mysql --with-imap --with-pgsql --with-suhosin
@@ -318,7 +323,6 @@ e_header "Only use UTF-8 in Terminal.app"
   defaults write com.apple.terminal StringEncodings -array 4  
 
 sudo apachectl restart
-open https:localhost
 cd ../
   
 source ~/.bash_profile
