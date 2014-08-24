@@ -191,8 +191,11 @@ e_header "Installing Node and (Node Package Manager)..."
 e_header "Installing Grunt..."
   npm install -g grunt-cli
 
+e_header "Installing Underscore..."
+  npm install underscore
+
 e_header "Installing Backbone..."
-  npm install backbone
+  npm install -g backbone
   
 e_header "Installing Coffeescript..."
   npm install -g coffee-script
