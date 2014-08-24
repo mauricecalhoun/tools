@@ -184,6 +184,9 @@ e_header "Installing Phantom JS for Javascript testing..."
  
 e_header "Installing Node and (Node Package Manager)..."
   brew install node
+  sudo brew postinstall node
+  brew doctor
+  brew link node
   
 e_header "Installing Grunt..."
   npm install -g grunt-cli
