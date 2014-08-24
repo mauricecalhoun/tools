@@ -182,12 +182,9 @@ e_header "Updating Rubygems..."
 e_header "Installing Phantom JS for Javascript testing..."
   brew install phantomjs  
  
-e_header "Installing Node..."
+e_header "Installing Node and (Node Package Manager)..."
   brew install node
   
-e_header "Install NPM (Node Package Manager)..."
-  curl http://npmjs.org/install.sh | sh  
-
 e_header "Installing Grunt..."
   npm install -g grunt-cli
 
