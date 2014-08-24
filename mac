@@ -221,14 +221,33 @@ e_header "Cleaning Brew links..."
   
 e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
-  brew install php53  --with-mysql --with-imap --with-pgsql --with-suhosin
 
-e_header "Installing XDebug..."
-  brew install josegonzalez/php/php53-xdebug
+e_header "Installing PHP 5.4..."
+  brew install php54
+  brew link php54
 
-e_header "Installing Composer (PHP package manager)..."
-  brew install josegonzalez/php/composer
+e_header "Updating the date.timezone setting in /usr/local/etc/php/5.4/php.ini"
+  sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.4/php.ini
+  sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.4/php.ini
 
+e_header "Installing PHP 5.4 xDebug..."
+  brew install php54-xdebug
+
+e_header "Installing PHP 5.4 APC..."
+  brew install php54-apc
+
+e_header "Installing PHP 5.4 Twig..."
+  brew install php54-twig
+
+e_header "Installing PHP 5.4 intl..."
+  brew install php54-intl
+
+e_header "Installing PHP 5.4 Imagick"
+  brew install php54-imagick
+
+e_header "Installing PHP 5.4 MCrypt..."
+  brew install php54-mcrypt
+	
 e_header "Installing Composer (PHP package manager)..."
   brew install composer
   composer self-update
@@ -238,7 +257,7 @@ e_header "Installing Capifony..."
 
 e_header "Installing PHP CS Fixer..."
   curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
-  chmod a+x /usr/local/bin/php-cs-fixer  
+  chmod a+x /usr/local/bin/php-cs-fixer
   
 e_header "Installing Rails"
   gem install rails 
