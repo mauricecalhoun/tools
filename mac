@@ -223,7 +223,7 @@ e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
 
 e_header "Installing PHP 5.4..."
-  brew install php54
+  brew install php54 --with-mysql --with-homebrew-openssl --with-pgsql --with-mssql --with-imap
   brew link php54
 
 e_header "Updating the date.timezone setting in /usr/local/etc/php/5.4/php.ini"
