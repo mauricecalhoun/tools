@@ -288,6 +288,9 @@ e_header "Instaling PHP Q/A Tools"
 e_header "Installing PHP CS Fixer..."
   curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
   chmod a+x /usr/local/bin/php-cs-fixer
+
+e_header "Installing Mysql.."
+  brew install mysql --enable-debug
   
 e_header "Installing Rails"
   gem install rails 
