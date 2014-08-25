@@ -174,6 +174,9 @@ e_header "Installing latest version of Sass..."
 
 e_header "Installing latest version of Compass..."
   gem install compass --no-rdoc --no-ri
+  
+e_header "Installing latest version of Capistrano..."
+  gem install capistrano --no-rdoc --no-ri
 
 e_header "Updating Rubygems..."
   gem update
@@ -397,5 +400,3 @@ cd ../
 source ~/.bash_profile
 
 e_success "Boom... success opening localhost"
-
-open https//:localhost
