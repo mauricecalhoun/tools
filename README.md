@@ -1,4 +1,4 @@
-Tools
+Developer Tools
 =============
 borrowed from
 * [thoughtbot/laptop](https://github.com/thoughtbot/laptop)
