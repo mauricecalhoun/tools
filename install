@@ -112,8 +112,8 @@ e_header "Creating ~/Site folders"
 
 e_header "Install Solarized terminal theme"
   git clone git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git ~/Sites/Work/Internal/solarized-terminal
-  open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Light.terminal
-  open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Dark.terminal
+  # open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Light.terminal
+  # open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Dark.terminal
   sleep 1 # Wait a bit to make sure the theme is loaded
   defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
   defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
