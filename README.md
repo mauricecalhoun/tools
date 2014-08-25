@@ -20,6 +20,7 @@ Install
 Run the script:
 
     git clone https://github.com/mauricecalhoun/tools.git
+    ./tools/install
 
 
 What it sets up
