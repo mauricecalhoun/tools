@@ -247,6 +247,11 @@ e_header "Installing PHP 5.4 Imagick"
 
 e_header "Installing PHP 5.4 MCrypt..."
   brew install php54-mcrypt
+  
+e_header "Fixing PEAR permissions"
+  chmod -R ug+w $(brew --prefix php54)/lib/php
+  pear config-set php_ini /usr/local/etc/php/5.4/php.ini
+  pear config-set auto_discover 1  
 	
 e_header "Installing Composer (PHP package manager)..."
   brew install composer
@@ -254,6 +259,28 @@ e_header "Installing Composer (PHP package manager)..."
 
 e_header "Installing Capifony..."
   gem install capifony
+  
+e_header "Instaling PHP Q/A Tools"
+
+  pear channel-discover pear.pdepend.org
+  pear channel-discover pear.phpmd.org
+  pear channel-discover pear.phpunit.de
+  pear channel-discover pear.phpdoc.org
+  pear channel-discover components.ez.no
+  pear channel-discover pear.symfony-project.com
+  
+  pear install pdepend/PHP_Depend
+  pear install phpmd/PHP_PMD
+  pear install phpunit/phpcpd
+  pear install phpunit/phploc
+  pear install --alldeps phpunit/PHP_CodeBrowser
+  pear install --alldeps phpunit/PHPUnit
+  pear install phpdoc/phpDocumentor-alpha
+  pear install PHP_CodeSniffer
+  pear install pear.phpqatools.org/phpqatools
+  pear install pear.netpirates.net/phpDox-alpha
+
+  phpcs --config-set default_standard Symfony2  
 
 e_header "Installing PHP CS Fixer..."
   curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
@@ -369,4 +396,6 @@ cd ../
   
 source ~/.bash_profile
 
-e_success "Boom... success"
+e_success "Boom... success opening localhost"
+
+open https//:localhost
