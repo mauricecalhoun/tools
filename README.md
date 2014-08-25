@@ -43,6 +43,7 @@ What it sets up
 * PHP 5.4 w/ intl, apc, xdebug, twig and composer (https://github.com/josegonzalez/homebrew-php)
 * POW Ruby and PHP
 * POW Rails
+* and more....
 
 It should take about 30 minutes for everything to install, depending on your machine.
 
