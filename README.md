@@ -4,7 +4,7 @@ borrowed from
 * [thoughtbot/laptop](https://github.com/thoughtbot/laptop)
 * [newism/osx-dev-tools](https://github.com/newism/osx-dev-tools)
 
-Tools is a script to set up your Max OS X laptop as a web development machine.
+Developer Tools is a script to set up your Max OS X laptop as a web development machine.
 
 Requirements
 ------------
