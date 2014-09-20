@@ -183,6 +183,9 @@ e_header "Updating Rubygems..."
  
 e_header "Installing Phantom JS for Javascript testing..."
   brew install phantomjs  
+  
+e_header "Installing MongoDb..."
+  brew install mongodb    
  
 e_header "Installing Node and (Node Package Manager)..."
   brew install node
