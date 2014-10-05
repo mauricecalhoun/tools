@@ -195,6 +195,12 @@ e_header "Installing Node and (Node Package Manager)..."
   sudo brew postinstall node
   brew link node
   
+e_header "Installing Bower..."
+  npm install -g bower
+
+e_header "Installing Gulp..."
+  npm install -g gulp
+  
 e_header "Installing Grunt..."
   npm install -g grunt-cli
 
