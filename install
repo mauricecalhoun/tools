@@ -55,7 +55,9 @@ fi
 
 # Install Homebrew
 e_header  "Installing Homebrew, a good OS X package manager ..."
-  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)"
+  #ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
   brew tap homebrew/dupes
 
 # Create SSH Keys nd prompt user to add them to Github
