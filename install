@@ -120,8 +120,8 @@ e_header "Install Solarized terminal theme"
   defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
   defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
 
-e_header "Installing ImageMagick, good for cropping and re-sizing images ..."
-  brew install imagemagick
+e_header "Installing Imasudo gemagick, good for cropping and re-sizing images ..."
+  brew install imasudo gemagick
 
 e_header "Installing optipng, a PNG optimizer that recompresses the image files to a smaller size, without losing any information. ..."
   brew install optipng
@@ -160,28 +160,28 @@ e_header "Installing Ruby 1.9.3 via RVM"
   ruby -v
 
 e_header "Installing bundler for handling dependencies..."
-  gem install bundler --no-rdoc --no-ri
+  sudo gem install bundler --no-rdoc --no-ri
 
 e_header "Installing guard for watching files for changes..."
-  gem install guard --no-rdoc --no-ri
+  sudo gem install guard --no-rdoc --no-ri
 
 e_header "Installing KSS for generating styleguides..."
-  gem install kss --no-rdoc --no-ri
+  sudo gem install kss --no-rdoc --no-ri
 
 e_header "Installing rake..."
-  gem install rake --no-rdoc --no-ri
+  sudo gem install rake --no-rdoc --no-ri
 
 e_header "Installing latest version of Sass..."
-  gem install sass --no-rdoc --no-ri
+  sudo gem install sass --no-rdoc --no-ri
 
 e_header "Installing latest version of Compass..."
-  gem install compass --no-rdoc --no-ri
+  sudo gem install compass --no-rdoc --no-ri
   
 e_header "Installing latest version of Capistrano..."
-  gem install capistrano --no-rdoc --no-ri
+  sudo gem install capistrano --no-rdoc --no-ri
 
-e_header "Updating Rubygems..."
-  gem update
+e_header "Updating Rubysudo gems..."
+  sudo gem update
 
 e_header "Installing Meteor"
  curl https://install.meteor.com/ | sh 
@@ -275,7 +275,7 @@ e_header "Installing Composer (PHP package manager)..."
   composer self-update
 
 e_header "Installing Capifony..."
-  gem install capifony
+  sudo gem install capifony
   
 e_header "Instaling PHP Q/A Tools"
 
@@ -307,13 +307,13 @@ e_header "Installing Mysql.."
   brew install mysql --enable-debug
   
 e_header "Installing Rails"
-  gem install rails 
+  sudo gem install rails 
   
 e_header "Installing Yeoman"
   npm install -g yo  
   
 e_header "Installing PHP POW by Dan Ott"
-  gem install phpow
+  sudo gem install phpow
   
 e_header "Installing Rails POW by Sam Stephenson"
   curl get.pow.cx | sh  
