@@ -181,7 +181,7 @@ e_header "Installing latest version of Capistrano..."
   sudo gem install capistrano --no-rdoc --no-ri
 
 e_header "Updating Rubygems..."
-  gem update
+  sudo gem update
 
 e_header "Installing Meteor"
  curl https://install.meteor.com/ | sh 
