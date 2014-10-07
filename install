@@ -240,6 +240,7 @@ e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
 
 e_header "Installing PHP 5.4..."
+  brew link openssl --force
   brew install php54 --with-mysql --with-homebrew-openssl --with-pgsql --with-mssql --with-imap --with-tidy
   brew link php54
 
