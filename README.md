@@ -40,7 +40,7 @@ What it sets up
 * NPM (Node package manager)
 * Coffeescript
 * Bunch of commonly-used node packages
-* PHP 5.4 w/ intl, apc, xdebug, twig and composer (https://github.com/josegonzalez/homebrew-php)
+* PHP 5.6 w/ intl, apc, xdebug, twig and composer (https://github.com/josegonzalez/homebrew-php)
 * POW Ruby and PHP
 * POW Rails
 * and more....
@@ -66,7 +66,7 @@ Find this line in `/etc/apache2/httpd.conf` starting with:
     LoadModule php5_module /some/path
 
 And replace the path with:
-    # PHP 5.4
+    # PHP 5.6
     LoadModule php5_module /usr/local/opt/php54/libexec/apache2/libphp5.so
     
 Add this line to the bottom of the file:
