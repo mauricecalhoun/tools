@@ -250,14 +250,8 @@ e_header "Updating the date.timezone setting in /usr/local/etc/php/5.6/php.ini"
 e_header "Installing PHP 5.6 xDebug..."
   brew install php56-xdebug
 
-e_header "Installing PHP 5.6 APC..."
-  brew install php56-apc
-
 e_header "Installing PHP 5.6 Twig..."
   brew install php56-twig
-
-e_header "Installing PHP 5.6 intl..."
-  brew install php56-intl
 
 e_header "Installing PHP 5.6 Imagick"
   brew install php56-imagick
