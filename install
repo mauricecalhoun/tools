@@ -240,35 +240,37 @@ e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
 
 e_header "Installing PHP 5.4..."
-  brew unlink openssl && brew link openssl --force
-  brew install php54 --with-mysql --with-homebrew-openssl --with-pgsql --with-mssql --with-imap --with-tidy
-  brew link php54
+  brew unlink php53
+  brew unlink php54
+  brew unlink php55
+  brew install php56
+  brew link php56
 
-e_header "Updating the date.timezone setting in /usr/local/etc/php/5.4/php.ini"
-  sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.4/php.ini
-  sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.4/php.ini
+e_header "Updating the date.timezone setting in /usr/local/etc/php/5.6/php.ini"
+  sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.6/php.ini
+  sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.6/php.ini
 
-e_header "Installing PHP 5.4 xDebug..."
-  brew install php54-xdebug
+e_header "Installing PHP 5.6 xDebug..."
+  brew install php56-xdebug
 
-e_header "Installing PHP 5.4 APC..."
-  brew install php54-apc
+e_header "Installing PHP 5.6 APC..."
+  brew install php56-apc
 
-e_header "Installing PHP 5.4 Twig..."
-  brew install php54-twig
+e_header "Installing PHP 5.6 Twig..."
+  brew install php56-twig
 
-e_header "Installing PHP 5.4 intl..."
-  brew install php54-intl
+e_header "Installing PHP 5.6 intl..."
+  brew install php56-intl
 
-e_header "Installing PHP 5.4 Imagick"
-  brew install php54-imagick
+e_header "Installing PHP 5.6 Imagick"
+  brew install php56-imagick
 
-e_header "Installing PHP 5.4 MCrypt..."
-  brew install php54-mcrypt
+e_header "Installing PHP 5.6 MCrypt..."
+  brew install php56-mcrypt
   
 e_header "Fixing PEAR permissions"
   chmod -R ug+w $(brew --prefix php54)/lib/php
-  pear config-set php_ini /usr/local/etc/php/5.4/php.ini
+  pear config-set php_ini /usr/local/etc/php/5.6/php.ini
   pear config-set auto_discover 1  
 	
 e_header "Installing Composer (PHP package manager)..."
