@@ -239,7 +239,7 @@ e_header "Cleaning Brew links..."
 e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
 
-e_header "Installing PHP 5.4..."
+e_header "Installing PHP 5.6..."
   brew install php56
   brew link php56
 
