@@ -391,4 +391,4 @@ cd ../
   
 source ~/.bash_profile
 
-e_success "Boom... success opening localhost"
+e_success "Boom... Done"
