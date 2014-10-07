@@ -244,7 +244,7 @@ e_header "Installing PHP 5.6..."
   brew link php56
 
 e_header "Updating the date.timezone setting in /usr/local/etc/php/5.6/php.ini"
-  sed -i .bak 's/\;date.timezone =/date.timezone = "Australia\/Sydney"/g' /usr/local/etc/php/5.6/php.ini
+  sed -i .bak 's/\;date.timezone =/date.timezone = "America\/Chicago"/g' /usr/local/etc/php/5.6/php.ini
   sed -i .bak 's/\;auto_detect_line_endings = Off/auto_detect_line_endings = On/g' /usr/local/etc/php/5.6/php.ini
 
 e_header "Installing PHP 5.6 xDebug..."
@@ -266,7 +266,7 @@ e_header "Installing PHP 5.6 MCrypt..."
   brew install php56-mcrypt
   
 e_header "Fixing PEAR permissions"
-  chmod -R ug+w $(brew --prefix php54)/lib/php
+  chmod -R ug+w $(brew --prefix php5)/lib/php
   pear config-set php_ini /usr/local/etc/php/5.6/php.ini
   pear config-set auto_discover 1  
 	
