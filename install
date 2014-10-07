@@ -240,9 +240,6 @@ e_header "Tapping josegonzalez/homebrew-php..."
   brew tap josegonzalez/homebrew-php
 
 e_header "Installing PHP 5.4..."
-  brew unlink php53
-  brew unlink php54
-  brew unlink php55
   brew install php56
   brew link php56
 
