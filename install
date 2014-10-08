@@ -229,6 +229,9 @@ e_header "Installing Jade templating engine..."
 
 e_header "Installing JS2Coffee for converting projects to Coffeescript..."
   npm install -g js2coffee  
+
+e_header "Installing StrongLoop..."
+  npm install -g strongloop
   
 e_header "Cleaning Brew links..."
   ls -1 /usr/local/Library/LinkedKegs | while read line; do
