@@ -108,14 +108,11 @@ e_header "Install bash-completion..."
   brew install git bash-completion
 
 e_header "Creating ~/Site folders"
-  mkdir -p ~/Sites/Work/Clients
-  mkdir -p ~/Sites/Work/Internal
+  mkdir -p ~/Sites/Work
   mkdir -p ~/Sites/Home
 
 e_header "Install Solarized terminal theme"
-  git clone git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git ~/Sites/Work/Internal/solarized-terminal
-  # open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Light.terminal
-  # open ~/Sites/Work/Internal/solarized-terminal/Solarized\ Dark.terminal
+  git clone git://github.com/tomislav/osx-lion-terminal.app-colors-solarized.git ~/Sites/Work/solarized-terminal
   sleep 1 # Wait a bit to make sure the theme is loaded
   defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
   defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
