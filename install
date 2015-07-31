@@ -286,6 +286,9 @@ e_header "Installing PHP POW by Dan Ott"
 e_header "Installing Rails POW by Sam Stephenson"
   curl get.pow.cx | sh  
   
+e_header "Installing rbenv by Sam Stephenson"
+  brew install rbenv ruby-build
+  
 e_header "Enable keyboard access for all controls/modals"
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
   e_success "Done"
